@@ -5,37 +5,27 @@ ListNode* addTwoNumbers(ListNode* l1, ListNode* l2) {
 	while (true)
 	{
 		int sum;
-		if (l1 == nullptr && l2 == nullptr)
+		if (l1 == nullptr && l2 == nullptr && plus == 0)
 		{
-			if (plus == 1)
-			{
-				sum = 1;
-				plus = 0;
-			}
-			else
-			{
-				return head_node;
-			}
+			return head_node;
 		}
-		else if (l1 == nullptr)
+		if (l1 != nullptr)
 		{
-			sum = l2->val + plus;
+			sum += l1->val;
+			l1 = l1->next;
 		}
-		else if (l2 == nullptr)
+		if (l2 != nullptr)
 		{
-			sum = l1->val + plus;
+			sum = l2->val;
+			l2 = l2->next;
 		}
-		else
-		{
-			sum = l1->val + l2->val + plus;;
-		}
+		sum += plus;;
 		plus = 0;
 		if (sum > 9)
 		{
 			plus = 1;
 			sum %= 10;
 		}
-
 		ListNode *sum_node = new ListNode(sum);
 		if (head_node == nullptr)
 		{
@@ -46,7 +36,5 @@ ListNode* addTwoNumbers(ListNode* l1, ListNode* l2) {
 			prev_node->next = sum_node;
 		}
 		prev_node = sum_node;
-		if (l1 != nullptr) l1 = l1->next;
-		if (l2 != nullptr) l2 = l2->next;
 	}
 }

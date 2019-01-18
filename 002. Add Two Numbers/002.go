@@ -9,9 +9,11 @@ func addTwoNumbers(l1 *ListNode, l2 *ListNode) *ListNode {
         var sum int = 0
         if l1 != nil {
             sum += l1.Val
+			l1 = l1.Next
         }
         if l2 != nil {
             sum += l2.Val
+			l2 = l2.Next
         }
         sum += plus
         plus = 0
@@ -27,11 +29,5 @@ func addTwoNumbers(l1 *ListNode, l2 *ListNode) *ListNode {
             prev_node.Next = sum_node
         }
         prev_node = sum_node
-        if l1 != nil {
-            l1 = l1.Next
-        }
-        if l2 != nil {
-            l2 = l2.Next
-        }
     } 
 }
