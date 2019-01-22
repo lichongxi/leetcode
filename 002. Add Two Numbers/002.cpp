@@ -26,7 +26,7 @@ ListNode* addTwoNumbers(ListNode* l1, ListNode* l2) {
 			plus = 1;
 			sum %= 10;
 		}
-		ListNode *sum_node = new ListNode(sum);
+		auto sum_node = new ListNode(sum);
 		if (head_node == nullptr)
 		{
 			head_node = sum_node;
